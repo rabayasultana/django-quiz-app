@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Questions</h1>
+{% for question in questions %}
+    <p>{{ question.text }}</p>
+    <ul>
+        <li>{{ question.option1 }}</li>
+        <li>{{ question.option2 }}</li>
+        <li>{{ question.option3 }}</li>
+        <li>{{ question.option4 }}</li>
+    </ul>
+    <p><b>Correct Answer:</b> {{ question.correct_option }}</p>
+{% endfor %}
+<a href="/">Back to Home</a>
+
+</body>
+</html>
