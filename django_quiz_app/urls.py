@@ -23,12 +23,6 @@
 
 
 
-# urlpatterns = [
-#     path('', views.home, name='home'),
-#     path('submit/', views.submit_quiz, name='submit_quiz'),
-#     path('add/', views.add_question, name='add_question'),
-#     path('all/', views.all_questions, name='all_questions'),
-# ]
 
 from django import views
 from django.contrib import admin

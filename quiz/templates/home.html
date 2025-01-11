@@ -3,22 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Take the Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+
+        {% comment %}  Main Content Styling  {% endcomment %}
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .links a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+         {% comment %} Footer Styling  {% endcomment %}
+        .footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Take the Quiz</h1>
-<form method="POST" action="/submit/">
-    {% csrf_token %}
-    {% for question in questions %}
-        <h3>{{ question.text }}</h3>
-        <input type="radio" name="{{ question.id }}" value="{{ question.option1 }}" required> {{ question.option1 }}<br>
-        <input type="radio" name="{{ question.id }}" value="{{ question.option2 }}"> {{ question.option2 }}<br>
-        <input type="radio" name="{{ question.id }}" value="{{ question.option3 }}"> {{ question.option3 }}<br>
-        <input type="radio" name="{{ question.id }}" value="{{ question.option4 }}"> {{ question.option4 }}<br>
-    {% endfor %}
-    <button type="submit">Submit</button>
-</form>
-<a href="/add/">Add a Question</a> | <a href="/all/">View All Questions</a>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div><strong>Quiz App</strong></div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/add/">Add Question</a>
+            <a href="/questions/">View All Questions</a>
+        </div>
+    </div>
 
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Take the Quiz</h1>
+        <form method="POST" action="/submit/">
+            {% csrf_token %}
+            {% for question in questions %}
+                <div class="question">
+                    <h3>{{ question.text }}</h3>
+                    <input type="radio" name="{{ question.id }}" value="{{ question.option1 }}" required> {{ question.option1 }}<br>
+                    <input type="radio" name="{{ question.id }}" value="{{ question.option2 }}"> {{ question.option2 }}<br>
+                    <input type="radio" name="{{ question.id }}" value="{{ question.option3 }}"> {{ question.option3 }}<br>
+                    <input type="radio" name="{{ question.id }}" value="{{ question.option4 }}"> {{ question.option4 }}<br>
+                </div>
+            {% endfor %}
+            <div style="text-align: center; margin-top: 20px;">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="links">
+            <a href="/add/">Add a Question</a> | 
+            <a href="/questions/">View All Questions</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 Quiz App | All Rights Reserved
+    </div>
 </body>
 </html>

@@ -3,12 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Your Score</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Styling */
+        .container {
+            flex: 1; /* Ensures the main content fills available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            width: 80%;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+            display: inline-block;
+            border: 1px solid #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Your Score</h1>
-<p>You scored {{ score }} out of {{ total }}</p>
-<a href="/">Take the Quiz Again</a>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div><strong>Quiz App</strong></div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/add/">Add Question</a>
+            <a href="/questions/">View All Questions</a>
+        </div>
+    </div>
 
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Your Score</h1>
+        <p>You scored {{ score }} out of {{ total }}</p>
+        <a href="/">Take the Quiz Again</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 Quiz App | All Rights Reserved
+    </div>
 </body>
 </html>
